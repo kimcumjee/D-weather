@@ -29,3 +29,4 @@ class RetrofitApplication : Application(){
         weatherDataClass = retrofit.create(WeatherDataClass::class.java)
     }
 }
+
