@@ -1,4 +1,4 @@
-package com.e.d_weather.viewmodel
+package com.e.d_weather.viewModel
 
 import androidx.lifecycle.ViewModel
 /*

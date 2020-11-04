@@ -6,27 +6,12 @@
     <data>
         <variable
 
-            name="viewModel"
-            type="com.e.d_weather.viewmodel.MainViewModel" />
+            name="mainViewModel"
+            type="com.e.d_weather.viewModel.MainViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="328dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginBottom="355dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"/>
 </layout>
