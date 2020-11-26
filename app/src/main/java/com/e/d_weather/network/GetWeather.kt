@@ -26,15 +26,13 @@ class GetWeather {
                     //통신성공
                     if (response.code() == 200) {
                         Log.d("success","success : ${response.body()}")
-                    }
-                    //통신 실패
-                    else if (response.code() == 401) {
-                        Log.d("error", "error = " + response.errorBody())
+                        WeatherDataClass.instance = response.body()!!
+                        Log.d("dataclass","dataclass : ${WeatherDataClass.instance.main}")
                     }
                 }
                 //서버와 연결 실패
                 override fun onFailure(call: Call<WeatherDataClass>, t: Throwable) {
-                    Log.d("fa","fa")
+                    Log.d("fa","fa : ${t.message}")
                 }
             })
     }

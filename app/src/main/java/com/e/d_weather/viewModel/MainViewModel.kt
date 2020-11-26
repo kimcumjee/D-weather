@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModel
 * - 수정 날짜: 2020.10.14
 */
 class MainViewModel : ViewModel(){
-    init {
-        addData()
-    }
-    private fun addData(){
+
+     fun changeWeather(){
 
     }
 }

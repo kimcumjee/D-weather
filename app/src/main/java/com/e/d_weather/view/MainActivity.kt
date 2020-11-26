@@ -23,10 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main) // 연결
         viewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
-        binding.viewModel = viewModel
+        binding.mainViewModel = viewModel
         binding.lifecycleOwner = this
-        button.setOnClickListener {
-            getWeather.getWeather(application)
-        }
+        viewModel.changeWeather()
+        getWeather.getWeather(application)
     }
 }
