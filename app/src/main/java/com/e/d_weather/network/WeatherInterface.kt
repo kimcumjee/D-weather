@@ -8,7 +8,8 @@ interface WeatherInterface {
     @GET("/data/2.5/weather?")
     fun getWeather(
         @Query("q") q : String,
-        @Query("appid") appid : String
+        @Query("appid") appid : String,
+        @Query("units") units : String
     ): Call<WeatherDataClass>
 
 }

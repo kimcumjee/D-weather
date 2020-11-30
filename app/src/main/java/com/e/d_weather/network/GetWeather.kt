@@ -17,7 +17,7 @@ class GetWeather {
         val appId = "09c8dfc52b7541d33c528d09a55e2c18"
         val locate = "DAEGU"
         (application as RetrofitApplication).retrofit.create(WeatherInterface::class.java)
-            .getWeather(locate,appId)
+            .getWeather(locate,appId,"metric")
             .enqueue(object : Callback<WeatherDataClass> {
                 override fun onResponse(
                     call: Call<WeatherDataClass>,
