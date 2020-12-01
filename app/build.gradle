@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -32,11 +33,13 @@ android {
         }
     }
     dataBinding{
+        //noinspection DataBindingWithoutKapt
         enabled = true
     }
 }
 
 dependencies {
+    kapt 'com.android.databinding:compiler:3.5.3'
     //서버 통신을 확인하기 위한 stetho 라이브러리
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
