@@ -8,7 +8,7 @@ object ImageBinding {
     @JvmStatic
     @BindingAdapter("image")
     fun setWeatherImage(imageView: ImageView, icon: String?) {
-         if (icon == "01d") {
+        if (icon == "01d") {
             imageView.setImageResource(R.drawable.sun)
         } else if (icon == "01n") {
             imageView.setImageResource(R.drawable.night)
