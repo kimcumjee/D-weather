@@ -11,8 +11,6 @@ import com.e.d_weather.network.WeatherInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.text.*
 
 /*
@@ -23,29 +21,24 @@ import kotlin.text.*
 class MainViewModel : ViewModel() {
     var weatherTemp = ObservableField<String>()
 
-    var icon = MutableLiveData<Weather> ();
+    var icon = MutableLiveData<Weather>();
 
-    var weatherIcon : String = ""
+    var weatherIcon: String = ""
 
     lateinit var weatherDataClass: WeatherInterface
-    lateinit var retrofit: Retrofit
+    var retrofit = com.e.d_weather.network.RetrofitClient()
     private var baseUrl: BaseUrl = BaseUrl()
     private val appId = "09c8dfc52b7541d33c528d09a55e2c18"
     private val locate = "DAEGU"
-
+    var api = com.e.d_weather.network.RetrofitClient.getInstance()
     fun setWeatherTemp() {
-        retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl.Url)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        weatherDataClass = retrofit.create(WeatherInterface::class.java)
-        weatherDataClass.getWeather(locate, appId, "metric")
+        api.getWeather(locate, appId, "metric")
             .enqueue(object : Callback<WeatherDataClass> {
                 override fun onResponse(
                     call: Call<WeatherDataClass>,
                     response: Response<WeatherDataClass>
                 ) {
-                    Log.d("씨발련아","씨발련아")
+                    Log.d("씨발련아", "씨발련아")
                     WeatherDataClass.instance = response.body()
                     weatherTemp.set(String.format("%.1f", response.body()?.main?.temp) + "°C 입니다")
                     weatherIcon = response.body()?.weatherList!![0].icon!!
